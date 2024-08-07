@@ -1,0 +1,10 @@
+/* Global styles for the entire application */
+
+body {
+  font-family: 'Roboto', sans-serif; /* Use Roboto font or any other preferred font */
+}
+
+.container {
+  max-width: 1200px; /* Set maximum width for content */
+  margin: auto; /* Center content horizontally */
+}

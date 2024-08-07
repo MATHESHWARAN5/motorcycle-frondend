@@ -1,0 +1,58 @@
+/* Styles for the service history component */
+
+.service-history {
+    padding: 20px; /* Add padding */
+  }
+  
+  .service-history img {
+    max-width: 100%; /* Ensure images don't exceed their container */
+  }
+  
+
+
+
+
+  .booking-form {
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .booking-form h2 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .booking-form form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .booking-form input,
+  .booking-form select {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+  
+  .booking-form button {
+    padding: 12px 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .booking-form button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Add more styles as needed */
+  
