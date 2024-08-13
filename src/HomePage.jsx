@@ -185,6 +185,19 @@ import { faFacebook, faTwitter, faInstagram } from '@fortawesome/free-brands-svg
 
 // import {React} from 'react';
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 import './HomePage.css';
 
 const HomePage = () => {
@@ -205,7 +218,10 @@ const HomePage = () => {
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
-  <button className="cta-button">Book a Service</button>
+  {/* <button className="cta-button">Book a Service</button> */}
+  {/* <ButtonLink to="/authentication">Go to About Page</ButtonLink> */}
+  <a href="/authentication "className="cta-button" >Login</a>
+ 
 </header>
 
 {/* Hero Section */}
@@ -213,7 +229,8 @@ const HomePage = () => {
   <div className="hero-content">
     <h1>Book Your Motorcycle Service Hassle-Free</h1>
     <p>Brief description highlighting the key benefits of using the service, such as convenience, quality, etc.</p>
-    <button className="cta-button">Book Now</button>
+    {/* <button className="cta-button">Book Now</button> */}
+    <a href="/service-booking "className="cta-button" >Book now</a>
   </div>
   <div className="hero-image">
     {/* <img src="motorcycle-service.jpg" alt="Motorcycle Service" /> */}
@@ -231,28 +248,35 @@ const HomePage = () => {
              {/* Service Card Component */}
             <div className="service-card">
             {/* <img src="oil-change-icon.png" alt="Oil Change" /> */}
-           <img src="/Castrol-01.png" alt="Oil Change" />
+           {/* <img src="/Castrol-01.png" alt="Oil Change" /> */}
+           <img src="istockphoto-1325588832-612x612.jpg" alt="oil" srcset="" />
+
            <h3>Oil Change</h3>
            <p>Short description of the service with bullet points highlighting key features.</p>
-            <button className="cta-button">Book Now</button>
+            {/* <button className="cta-button">Book Now</button> */}
+            <a href="/service-booking "className="cta-button" >Book now</a>
            </div>
     {/* Repeat for other services */}
 
               <div className="service-card">
               {/* <img src="oil-change-icon.png" alt="Oil Change" /> */}
-              <img src="/Castrol-01.png" alt="Oil Change" />
+              {/* <img src="/Castrol-01.png" alt="Oil Change" /> */}
+              <img src="Tire-Repair-Uptown-New-Orleans.webp" alt="tire" srcset="" />
               <h3>Tire Replacement</h3>
               <p>Short description of the service with bullet points highlighting key features.</p>
-              <button className="cta-button">Book Now</button>
+              {/* <button className="cta-button">Book Now</button> */}
+              <a href="/service-booking "className="cta-button" >Book now</a>
               </div>
 
 
                <div className="service-card">
                {/* <img src="oil-change-icon.png" alt="Oil Change" /> */}
-               <img src="/Castrol-01.png" alt="Oil Change" />
+               {/* <img src="/Castrol-01.png" alt="Oil Change" /> */}
+               <img src="istockphoto-1193247902-1024x1024.webp" alt="brake" srcset="" />
                <h3>Brake Inspection</h3>
                <p>Short description of the service with bullet points highlighting key features.</p>
-               <button className="cta-button">Book Now</button>
+               {/* <button className="cta-button">Book Now</button> */}
+               <a href="/service-booking "className="cta-button" >Book now</a>
                </div>
 
 
@@ -276,7 +300,8 @@ const HomePage = () => {
     {/* Team Member Card Component */}
     <div className="team-member">
       {/* <img src="mechanic.jpg" alt="Mechanic" /> */}
-      <img src="/images motorcycle.jpg" className="img-fluid rounded" alt="Service 1" />
+      {/* <img src="/images motorcycle.jpg" className="img-fluid rounded" alt="Service 1" /> */}
+      <img src="1_MHOjfaq3Y3GRZqziDv__nQ.jpg" alt="about us" srcset="" />
       <h3>John Doe</h3>
       <p>Brief bio of the team member.</p>
     </div>
@@ -297,7 +322,8 @@ const HomePage = () => {
     {/* Booking Form Fields */}
     <input type="text" placeholder="Name" />
     {/* Repeat for other form fields */}
-    <button type="submit" className="cta-button">Book Now</button>
+    {/* <button type="submit" className="cta-button">Book Now</button> */}
+    <a href="/authentication"className="cta-button" >Book now</a>
   </form>
 </section>
 
