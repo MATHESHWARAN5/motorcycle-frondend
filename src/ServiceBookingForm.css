@@ -1,8 +1,4 @@
-/* Styles for the service booking form component */
 
-.form-control {
-    margin-bottom: 1rem; /* Add spacing between form controls */
-  }
   
   .btn-primary {
     background-color: #007bff; /* Blue primary button color */
@@ -41,3 +37,98 @@
   
   /* Adjust styles as needed */
   
+
+
+
+
+
+
+  /* styles.css */
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+input, button {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+} */
+
+
+
+
+
+/* ServiceBookingForm.css */
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.card {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /* border: none; */
+  border-color: black;
+}
+
+.card-title {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.form-label {
+  font-weight: bold;
+}
+
+.form-control, .form-select {
+  border-radius: 4px;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 4px;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+  border-color: #004085;
+}
+
+.me-2 {
+  margin-right: 8px;
+}
+
+.mt-5 {
+  margin-top: 3rem;
+}
+
+.mb-3 {
+  margin-bottom: 1rem;
+}

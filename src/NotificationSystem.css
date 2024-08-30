@@ -1,13 +1,66 @@
-/* Styles for the notification system component */
+/* styles.css */
+.feedback-container {
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
 
-.notification {
-    padding: 10px 20px; /* Add padding */
-    background-color: #28a745; /* Green background color */
-    color: #fff; /* White text color */
-    margin-bottom: 10px; /* Add spacing between notifications */
-  }
-  
-  .notification.error {
-    background-color: #dc3545; /* Red background color for error notifications */
-  }
-  
+.feedback-container h2 {
+  text-align: center;
+}
+
+.feedback-container form {
+  display: flex;
+  flex-direction: column;
+}
+
+.feedback-container label {
+  margin-top: 10px;
+}
+
+.feedback-container input,
+.feedback-container textarea {
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.feedback-container .rating {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 5px;
+}
+
+.feedback-container .star {
+  cursor: pointer;
+  color: #ccc;
+}
+
+.feedback-container .star.selected {
+  color: gold;
+}
+
+.feedback-container button {
+  padding: 10px;
+  margin-top: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.feedback-container button:hover {
+  background-color: #0056b3;
+}
+
+.feedback-container p {
+  text-align: center;
+  color: green;
+  margin-top: 10px;
+}

@@ -1,23 +1,4 @@
-// import React from 'react';
 
-
-// function ServiceHistory() {
-//   return (
-//     <div className="card">
-//       <div className="card-body">
-//         <h2 className="card-title">Service History</h2>
-//         <ul className="list-group">
-//           <li className="list-group-item">Service 1 - Oil Change</li>
-//           <li className="list-group-item">Service 2 - Tire Replacement</li>
-//           <li className="list-group-item">Service 3 - Brake Inspection</li>
-//           {/* Add more service items as needed */}
-//         </ul>
-//       </div>
-//     </div>
-//   );
-// }
-
-// export default ServiceHistory;
 
 
 
@@ -37,7 +18,8 @@ function ServiceHistory() {
 
   const fetchServiceHistory = async () => {
     try {
-      const response = await axios.get('/api/service-history');
+      // const response = await axios.get('/api/service-history');
+      const response = await axios.get('https://backend-capstone-motorcycle.onrender.com/api/service-history');
       setServiceHistory(response.data);
       setLoading(false);
     } catch (error) {

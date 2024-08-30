@@ -56,7 +56,7 @@ const HomePage = () => {
              {/* Service Card Component */}
             <div className="service-card">
             
-           <img src="istockphoto-1325588832-612x612.jpg" alt="oil" srcset="" />
+           <img src="istockphoto-1325588832-612x612.jpg" alt="oil"  />
 
            <h3>Oil Change</h3>
            <p>Short description of the service with bullet points highlighting key features.</p>
@@ -68,7 +68,7 @@ const HomePage = () => {
               <div className="service-card">
               {/* <img src="oil-change-icon.png" alt="Oil Change" /> */}
               {/* <img src="/Castrol-01.png" alt="Oil Change" /> */}
-              <img src="Tire-Repair-Uptown-New-Orleans.webp" alt="tire" srcset="" />
+              <img src="Tire-Repair-Uptown-New-Orleans.webp" alt="tire"  />
               <h3>Tire Replacement</h3>
               <p>Short description of the service with bullet points highlighting key features.</p>
               {/* <button className="cta-button">Book Now</button> */}
@@ -79,7 +79,7 @@ const HomePage = () => {
                <div className="service-card">
                {/* <img src="oil-change-icon.png" alt="Oil Change" /> */}
                {/* <img src="/Castrol-01.png" alt="Oil Change" /> */}
-               <img src="istockphoto-1193247902-1024x1024.webp" alt="brake" srcset="" />
+               <img src="istockphoto-1193247902-1024x1024.webp" alt="brake"  />
                <h3>Brake Inspection</h3>
                <p>Short description of the service with bullet points highlighting key features.</p>
                {/* <button className="cta-button">Book Now</button> */}
@@ -124,13 +124,13 @@ const HomePage = () => {
 
 {/* Booking Section */}
 <section id="booking" className="booking">
-  <h2>Book Your Service</h2>
+  <h2>your Feedback</h2>
   <form>
     {/* Booking Form Fields */}
     <input type="text" placeholder="Name" />
    
     {/* <button type="submit" className="cta-button">Book Now</button> */}
-    <a href="/authentication"className="cta-button" >Book now</a>
+    <a href="/notification-system"className="cta-button" >FeedBack</a>
   </form>
 </section>
 
@@ -139,20 +139,20 @@ const HomePage = () => {
   <div className="contact-info">
  
         <h5>Brands Serviced By Us</h5>
-        <ul class="footer-brand-list">
-          <li><i class="fab fa-honda"></i> Honda</li>
-          <li><i class="fas fa-motorcycle"></i> Hero MotoCorp</li>
-          <li><i class="fas fa-motorcycle"></i> Hero Honda</li>
-          <li><i class="fas fa-motorcycle"></i> TVS</li>
+        <ul className="footer-brand-list">
+          <li><i className="fab fa-honda"></i> Honda</li>
+          <li><i className="fas fa-motorcycle"></i> Hero MotoCorp</li>
+          <li><i className="fas fa-motorcycle"></i> Hero Honda</li>
+          <li><i className="fas fa-motorcycle"></i> TVS</li>
         
         </ul>
       
    
    
   <p>Contact Us</p>
-        <p><i class="fas fa-phone"></i> +919003251754</p>
-        <p><i class="fas fa-envelope"></i> hello@gobumpr.com</p>
-        <p><i class="fas fa-clock"></i> (Mon-Sat) 9:30AM-6:30PM</p>
+        <p><i className="fas fa-phone"></i> +919003251754</p>
+        <p><i className="fas fa-envelope"></i> hello@gobumpr.com</p>
+        <p><i className="fas fa-clock"></i> (Mon-Sat) 9:30AM-6:30PM</p>
   </div>
   <div className="social-media">
     <a href="#">Facebook</a>
@@ -166,7 +166,7 @@ const HomePage = () => {
 
 {/* Footer Section */}
 
-<footer class="footer">
+<footer className="footer">
  
 </footer>
 

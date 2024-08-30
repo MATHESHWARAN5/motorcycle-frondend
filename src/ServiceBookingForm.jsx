@@ -1,72 +1,4 @@
-// import axios from 'axios'
-// import React from 'react'
 
-// import {useForm} from 'react-hook-form'
-
-
-
-// const ServiceBookingForm = () => {
-
-
-//     // const [servicetype,setServicetype] = useState([])
-
-
-// const {register,handleSubmit} = useForm()
-
-
-// const onsubmit = async(data)=>{
-
-
-//     console.log("data",data);
-
-//     const res = await axios.post('http://localhost:5001/api/book-service', data);
-//       alert(res.data.message)
-
-// }
-
-
-//   return (
-//     <>
-//      <div className='container mt-5'>
-//         <form onSubmit={handleSubmit(onsubmit)}>
-//         <div className="mb-3">
-//             <label htmlFor="name" className="form-label">Name</label>
-//             <input type="text" {...register('name')} className="form-control" id="name" name="name" required />
-//           </div>
-//           <div className="mb-3">
-//             <label htmlFor="email" className="form-label">Email</label>
-//             <input type="email" {...register('email')} className="form-control" id="email" name="email"  required />
-//           </div>
-//           <div className="mb-3">
-//             <label htmlFor="serviceType" className="form-label">Service Type</label>
-//             <select className="form-select" {...register('servicetype')} id="serviceType" name="serviceType"  required>
-//               <option value="">Select Service Type</option>
-//               <option value="Oil Change">Oil Change</option>
-//               <option value="Tire Replacement">Tire Replacement</option>
-//               <option value="Brake Inspection">Brake Inspection</option>
-              
-//             </select>
-          
-//           </div>
-//           <div className="mb-3">
-//             <label htmlFor="date" className="form-label">Appoinment Date</label>
-//             <input type="date" {...register('date')} className="form-control" id="date" name="date" required />
-//           </div>
-//             <button type="submit" className="btn btn-primary">Submit</button>
-//         </form>
-//      </div>
-//     </>
-//   )
-// }
-
-// export default ServiceBookingForm
-
-{/* <select name="func" {...register("servicetype")}>
-           
-<option value="Oil Change">Oil Change</option>
-<option value="Tire Replacement">Tire Replacement</option>
-<option value="Brake Inspection">Brake Inspection</option>
-</select> */}
 
 import React, { useState } from 'react';
 import axios from 'axios';
@@ -92,7 +24,8 @@ const ServiceBookingForm = () => {
   const handleSubmit = async e => {
     e.preventDefault();
     try {
-      const res = await axios.post('http://localhost:5001/api/book-service', formData);
+      const res = await axios.post('https://backend-capstone-motorcycle.onrender.com/api/book-service', formData);
+      // const res = await axios.post('https://backend-capstone-motorcycle.onrender.com/api/book-service', formData);
       console.log(res.data.message);
       toast.success(res.data.message); // Show success message using toast
       // Reset form fields or show success message
@@ -143,3 +76,4 @@ const ServiceBookingForm = () => {
 }
 
 export default ServiceBookingForm;
+
