@@ -1,14 +1,17 @@
+
 import React, { useState } from 'react';
 import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate hook
 import './NotificationSystem.css';
 
 const Feedback = () => {
   const [rating, setRating] = useState(1);
   const [comment, setComment] = useState('');
+  const navigate = useNavigate(); // Initialize useNavigate hook
 
   // Function to handle form submission
   const handleSubmit = async (e) => {
@@ -19,9 +22,15 @@ const Feedback = () => {
         rating,
         comment
       });
+
       // Show success notification
       toast.success(response.data.message);
-      setComment(''); // Clear comment field after successful submission
+
+      // Delay before redirecting to homepage
+      setTimeout(() => {
+        navigate('/'); // Redirect to home page
+      }, 2000); // 2 seconds delay
+
     } catch (error) {
       // Show error notification
       console.error('Error submitting feedback:', error);
@@ -68,11 +77,3 @@ const Feedback = () => {
 };
 
 export default Feedback;
-
-
-
-
-
-
-
-

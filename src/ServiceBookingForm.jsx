@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMotorcycle } from '@fortawesome/free-solid-svg-icons';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate for navigation
 import './ServiceBookingForm.css'; // Import CSS for styling
 
 const ServiceBookingForm = () => {
@@ -17,6 +18,8 @@ const ServiceBookingForm = () => {
     registrationNumber: '',
   });
 
+  const navigate = useNavigate(); // Initialize useNavigate
+
   const handleChange = e => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -25,10 +28,13 @@ const ServiceBookingForm = () => {
     e.preventDefault();
     try {
       const res = await axios.post('https://backend-capstone-motorcycle.onrender.com/api/book-service', formData);
-      // const res = await axios.post('https://backend-capstone-motorcycle.onrender.com/api/book-service', formData);
       console.log(res.data.message);
       toast.success(res.data.message); // Show success message using toast
-      // Reset form fields or show success message
+      
+      // Wait for 2 seconds before redirecting
+      setTimeout(() => {
+        navigate('/'); // Redirect to homepage
+      }, 2000);
     } catch (error) {
       console.error('Error booking service:', error);
       toast.error('Failed to book service'); // Show error message using toast
@@ -38,10 +44,8 @@ const ServiceBookingForm = () => {
 
   return (
     <div className="container mt-5">
- 
       <div className="card mt-5">
         <div className="card-body">
-       
           <h2 className="card-title">Service Booking Form</h2>
           <form onSubmit={handleSubmit}>
             <div className="mb-3">
@@ -67,13 +71,8 @@ const ServiceBookingForm = () => {
           <ToastContainer /> {/* Toast container to show notifications */}
         </div>
       </div>
-
-      {/* Medium Cars Section */}
-
-      
     </div>
   );
-}
+};
 
 export default ServiceBookingForm;
-
