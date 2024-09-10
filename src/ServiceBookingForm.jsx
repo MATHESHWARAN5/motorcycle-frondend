@@ -50,21 +50,58 @@ const ServiceBookingForm = () => {
           <form onSubmit={handleSubmit}>
             <div className="mb-3">
               <label htmlFor="bikeModel" className="form-label">Bike Model</label>
-              <input type="text" className="form-control" id="bikeModel" name="model" onChange={handleChange} />
+              <input type="text" className="form-control" id="bikeModel" name="model" onChange={handleChange} required  />
             </div>
+
+
+{/* 
             <div className="mb-3">
               <label htmlFor="serviceType" className="form-label">Service Type</label>
-              <select className="form-select" id="serviceType" name="serviceType" onChange={handleChange}>
+              <select className="form-select" id="serviceType" name="serviceType" onChange={handleChange} required >
                 <option>Select Service Type</option>
                 <option value="Oil Change">Oil Change</option>
                 <option value="Tire Replacement">Tire Replacement</option>
                 <option value="Brake Service">Brake Service</option>
-                {/* Add more options as needed */}
+               
               </select>
-            </div>
+            </div> */}
+
+
+
+<div className="mb-3">
+  <label htmlFor="serviceType" className="form-label">Service Type</label>
+  <select
+    className="form-select"
+    id="serviceType"
+    name="serviceType"
+    onChange={handleChange}
+    required // Required attribute to enforce selection
+  >
+    <option value="" disabled>Select Service Type</option> {/* Default option with empty value */}
+    <option value="Oil Change">Oil Change</option>
+    <option value="Tire Replacement">Tire Replacement</option>
+    <option value="Brake Service">Brake Service</option>
+    {/* Add more options as needed */}
+  </select>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             <div className="mb-3">
               <label htmlFor="appointmentDate" className="form-label">Appointment Date</label>
-              <input type="date" className="form-control" id="appointmentDate" name="dateTime" onChange={handleChange} />
+              <input type="date" className="form-control" id="appointmentDate" name="dateTime" onChange={handleChange} required />
             </div>
             <button type="submit" className="btn btn-primary"><FontAwesomeIcon icon={faMotorcycle} className="me-2" />Book Service</button>
           </form>
@@ -76,3 +113,22 @@ const ServiceBookingForm = () => {
 };
 
 export default ServiceBookingForm;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,4 +1,4 @@
-/* Styles specific to the homepage component */
+
 
 .hero {
     background-color: #f0f0f0; /* Light gray background color */
@@ -263,6 +263,305 @@ body {
   text-align: center;
   color: rgb(10, 1, 1);
 }
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* General Styles */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: rgb(12, 12, 12); /* Adjusted for dark background */
+}
+
+h2 {
+  text-align: center;
+  color: #0a0a0a; /* White text for better contrast */
+}
+
+/* About Us Section with Gladiator Background */
+.about {
+  padding: 60px 20px;
+  background-image: url('/mec.jpg');  
+  /* background-image: url('/public/vec1.jpg'); */
+  background-size: cover;
+  background-position: center;
+  color: rgb(253, 255, 251);
+}
+
+.about h2 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+
+.about p {
+  font-size: 1.2em;
+  margin-bottom: 40px;
+  line-height: 1.6;
+}
+
+/* Team Members Section */
+.team-members {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.team-member {
+  background: rgba(0, 0, 0, 0.7); /* Transparent background for readability */
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  flex: 1 1 calc(33.333% - 20px);
+  max-width: 300px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.team-member img {
+  border-radius: 10%;
+  width: 400px;
+  height: 100px;
+  object-fit: cover;
+  margin-bottom: 15px;
+}
+
+/* Testimonials Section */
+.testimonials {
+  margin-top: 50px;
+  background: rgba(0, 0, 0, 0.8); /* Dark background */
+  padding: 40px;
+  color: white;
+  border-radius: 10px;
+}
+
+blockquote {
+  background: rgba(255, 255, 255, 0.1); /* Light opacity for readability */
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-style: italic;
+}
+
+blockquote footer {
+  text-align: right;
+  font-size: 0.9em;
+}
+
+/* Booking Section with Gladiator Background */
+.booking {
+  padding: 50px;
+  /* background-image: url('/images/gladiator-bg.jpg'); Gladiator background */
+  background-image: url('/vec1.jpg');
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  color: rgb(181, 240, 20);
+}
+
+.booking h2 {
+  font-size: 3.5em;
+  color: rgb(241, 238, 238);
+}
+
+.booking form {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.9); /* Light form background */
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.booking input {
+  width: 200px;
+  padding: 10px;
+  margin: 10px;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 12px 30px;
+  background-color: #ff5733;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+/* Footer Section */
+.footer {
+  background: #333;
+  color: white;
+  padding: 40px;
+  text-align: center;
+}
+
+.footer .contact-info {
+  margin-bottom: 20px;
+}
+
+.footer-brand-list {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-brand-list li {
+  margin-bottom: 10px;
+}
+
+.footer .social-media a {
+  color: white;
+  margin-right: 15px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .team-member {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+
+  .booking input {
+    width: 100%;
+  }
+
+  .cta-button {
+    width: 100%;
+    margin-top: 10px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Services Section */
+#services {
+   background-image: url('/serve.jpg'); 
+  /* background-image: url('/public/mec.jpg'); */
+  background-size: cover;
+  background-position: center;
+  padding: 50px 20px;
+  /* color: #fff; White text for readability */
+}
+
+#services h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  color: #faf3f3;
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+  gap: 20px; /* Space between cards */
+}
+
+.service-card {
+  background-color: rgba(243, 246, 248, 0.89); /* Semi-transparent background */
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-10px); /* Hover effect */
+}
+
+.service-card img {
+  max-width: 100%; /* Responsive images */
+  border-radius: 10px;
+}
+
+.service-card h3 {
+  margin: 15px 0;
+  font-size: 1.5rem;
+}
+
+.service-card p {
+  font-size: 1rem;
+  margin-bottom: 15px;
+}
+
+.cta-button {
+  background-color: #f57c00; /* CTA button color */
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #ff9800;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .service-card {
+    padding: 15px;
+  }
+
+  .service-card h3 {
+    font-size: 1.2rem;
+  }
+
+  .service-card p {
+    font-size: 0.9rem;
+  }
+
+  .cta-button {
+    padding: 8px 16px;
+  }
+}
+
+
+
+
+
+
+
+
+
 
 
 
