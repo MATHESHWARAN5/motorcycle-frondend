@@ -1,6 +1,7 @@
 import React from 'react'
 import {  Link, Route, Routes } from "react-router-dom";
 import HomePage from './HomePage';
+// import Login from './Authentication';
 import ServiceBookingForm from './ServiceBookingForm';
 import ServiceHistory from './ServiceHistory';
 import Authentication from './Authentication';
@@ -25,6 +26,7 @@ const App = () => {
 
     <Routes>
       <Route path="/" element={<HomePage/>}></Route>
+      <Route path="/login" element={<Authentication />} />
       <Route path="/service-booking" element={<ServiceBookingForm/>}></Route>
       <Route path="/service-history" element={<ServiceHistory/>}></Route>
       <Route path="/authentication" element={<Authentication/>}></Route>
@@ -40,3 +42,7 @@ const App = () => {
 }
 
 export default App
+
+
+
+
