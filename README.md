@@ -25,6 +25,9 @@ This project sets up a modern React application with Vite for a motorcycle servi
 
 🛠️ **Technologies**
 
+📜 **License**
+This project is licensed under the MIT License - see the LICENSE file for details.
+
 - **React**: A popular JavaScript library for building user interfaces.
 - **Vite**: A next-generation build tool that offers fast development and optimized builds.
 - **ESLint**: A tool for identifying and fixing problems in JavaScript code, ensuring code quality.
