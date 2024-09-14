@@ -1,161 +1,11 @@
-
-
-// import React, { useState } from 'react';
-// import axios from 'axios';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { faMotorcycle } from '@fortawesome/free-solid-svg-icons';
-// import { ToastContainer, toast } from 'react-toastify';
-// import 'react-toastify/dist/ReactToastify.css';
-// import { useNavigate } from 'react-router-dom'; // Import useNavigate for navigation
-// import './ServiceBookingForm.css'; // Import CSS for styling
-
-// const ServiceBookingForm = () => {
-//   const [formData, setFormData] = useState({
-//     serviceType: '',
-//     dateTime: '',
-//     make: '',
-//     model: '',
-//     registrationNumber: '',
-//   });
-
-//   const navigate = useNavigate(); // Initialize useNavigate
-
-//   const handleChange = e => {
-//     setFormData({ ...formData, [e.target.name]: e.target.value });
-//   };
-
-//   const handleSubmit = async e => {
-//     e.preventDefault();
-//     try {
-//       const res = await axios.post('https://backend-capstone-motorcycle.onrender.com/api/book-service', formData);
-//       console.log(res.data.message);
-//       toast.success(res.data.message); // Show success message using toast
-      
-//       // Wait for 2 seconds before redirecting
-//       setTimeout(() => {
-//         navigate('/'); // Redirect to homepage
-//       }, 2000);
-//     } catch (error) {
-//       console.error('Error booking service:', error);
-//       toast.error('Failed to book service'); // Show error message using toast
-//       // Handle error
-//     }
-//   };
-
-//   return (
-//     <div className="container mt-5">
-//       <div className="card mt-5">
-//         <div className="card-body">
-//           <h2 className="card-title">Service Booking Form</h2>
-//           <form onSubmit={handleSubmit}>
-//             <div className="mb-3">
-//               <label htmlFor="bikeModel" className="form-label">Bike Model</label>
-//               <input type="text" className="form-control" id="bikeModel" name="model" onChange={handleChange} required  />
-//             </div>
-
-
-// {/* 
-//             <div className="mb-3">
-//               <label htmlFor="serviceType" className="form-label">Service Type</label>
-//               <select className="form-select" id="serviceType" name="serviceType" onChange={handleChange} required >
-//                 <option>Select Service Type</option>
-//                 <option value="Oil Change">Oil Change</option>
-//                 <option value="Tire Replacement">Tire Replacement</option>
-//                 <option value="Brake Service">Brake Service</option>
-               
-//               </select>
-//             </div> */}
-
-
-
-// <div className="mb-3">
-//   <label htmlFor="serviceType" className="form-label">Service Type</label>
-//   <select
-//     className="form-select"
-//     id="serviceType"
-//     name="serviceType"
-//     onChange={handleChange}
-//     required // Required attribute to enforce selection
-//   >
-//     <option value="" disabled>Select Service Type</option> {/* Default option with empty value */}
-//     <option value="Oil Change">Oil Change</option>
-//     <option value="Tire Replacement">Tire Replacement</option>
-//     <option value="Brake Service">Brake Service</option>
-//     {/* Add more options as needed */}
-//   </select>
-// </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//             <div className="mb-3">
-//               <label htmlFor="appointmentDate" className="form-label">Appointment Date</label>
-//               <input type="date" className="form-control" id="appointmentDate" name="dateTime" onChange={handleChange} required />
-//             </div>
-//             <button type="submit" className="btn btn-primary"><FontAwesomeIcon icon={faMotorcycle} className="me-2" />Book Service</button>
-//           </form>
-//           <ToastContainer /> {/* Toast container to show notifications */}
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default ServiceBookingForm;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 import React, { useState } from 'react';
 import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMotorcycle } from '@fortawesome/free-solid-svg-icons';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+// import jwtDecode from 'jwt-decode'; // Correct import statement
+import { jwtDecode } from 'jwt-decode'; 
 import { useNavigate } from 'react-router-dom';
 import './ServiceBookingForm.css';
 
@@ -165,10 +15,10 @@ const ServiceBookingForm = () => {
     dateTime: '',
     make: '',
     model: '',
+    description: ''
   });
 
   const [errors, setErrors] = useState({});
-
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -181,6 +31,7 @@ const ServiceBookingForm = () => {
     if (!formData.dateTime) newErrors.dateTime = 'Date and Time are required';
     if (!formData.make) newErrors.make = 'Make is required';
     if (!formData.model) newErrors.model = 'Model is required';
+    if (!formData.description) newErrors.description = 'Description is required';
     return newErrors;
   };
 
@@ -193,16 +44,28 @@ const ServiceBookingForm = () => {
     }
 
     try {
-      const token = localStorage.getItem('token'); 
-      console.log('Form Data:', formData);
-      console.log('token:',token);
+      const token = localStorage.getItem('token');
+      if (!token) {
+        setErrors({ general: 'No authentication token found.' });
+        return;
+      }
+
+      // Decode the JWT token
+      const decodedToken = jwtDecode(token);
+      console.log('Decoded Token:', decodedToken);
+
+      const bookingData = {
+        ...formData,
+        userId: decodedToken.id,
+      };
 
       const response = await axios.post(
-        'https://backend-capstone-motorcycle.onrender.com/api/book-service',
-        { userId: 'someUserId', ...formData }, // Include userId and formData
+        'https://backend-capstone-motorcycle.onrender.com/api/book-service', // Updated endpoint URL
+        bookingData,
         {
           headers: {
-            Authorization: `Bearer ${token}`, // Include token in request header
+            Authorization: `Bearer ${token}`,
+            'Content-Type': 'application/json'
           },
         }
       );
@@ -210,13 +73,12 @@ const ServiceBookingForm = () => {
       console.log('Response Data:', response.data);
       toast.success(response.data.message);
 
-      // setTimeout(() => {
-        navigate('/'); // Redirect to homepage
-      // }, 2000);
-    } catch (error) {
-      console.error('Error booking service:', error);
-      console.error('Error Response Data:', error.response?.data);
-      toast.error(error.response?.data.message || 'Failed to book service. Please try again.');
+      setTimeout(() => {
+        navigate('/');
+      }, 2000);
+    } catch (err) {
+      console.error('Error booking service:', err);
+      toast.error(err.response?.data.message || 'Failed to book service. Please try again.');
     }
   };
 
@@ -225,6 +87,7 @@ const ServiceBookingForm = () => {
       <div className="card mt-5">
         <div className="card-body">
           <h2 className="card-title">Service Booking Form</h2>
+          {errors.general && <p className="error">{errors.general}</p>}
           <form onSubmit={handleSubmit}>
             <div className="mb-3">
               <label htmlFor="serviceType" className="form-label">Service Type</label>
@@ -288,8 +151,23 @@ const ServiceBookingForm = () => {
               {errors.model && <div className="invalid-feedback">{errors.model}</div>}
             </div>
 
+            <div className="mb-3">
+              <label htmlFor="description" className="form-label">Description</label>
+              <textarea
+                className={`form-control ${errors.description ? 'is-invalid' : ''}`}
+                id="description"
+                name="description"
+                onChange={handleChange}
+                value={formData.description}
+                placeholder="Enter service description"
+                required
+              />
+              {errors.description && <div className="invalid-feedback">{errors.description}</div>}
+            </div>
+
             <button type="submit" className="btn btn-primary">
-              <FontAwesomeIcon icon={faMotorcycle} className="me-2" /> Book Service
+              <FontAwesomeIcon icon={faMotorcycle} className="me-2" />
+              Book Service
             </button>
           </form>
           <ToastContainer />
